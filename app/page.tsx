@@ -1,4 +1,4 @@
-import getStaticProps from "@/lib/getdata"
+// import getStaticProps from "@/lib/getdata"
 import Display from '@/app/components/posts'
 // import NavBar from "./components/Nav_bar";
 
@@ -10,7 +10,7 @@ export default async function Home() {
   return (
   <main>
       <h1 className="heading mt-20 ">Welcome to the Blog Website!!</h1>
-      <Display />
+     
 
   </main>
   )
