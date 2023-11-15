@@ -4,11 +4,16 @@ import mongoose from "mongoose";
 import { NextResponse } from "next/server";
 
 
-connectDB();
-const blog=mongoose.model('blog',userSchema);
 
+const blog= mongoose.models['Users'] || mongoose.model('Users',userSchema);
 export async function GET(){
-    const data=await blog.find({}).exec();
+    
+    await connectDB();
+    let data=await blog.find().exec();
+    mongoose.connection.close();
+    if(data==null)
+     return NextResponse.json({result:"no-data"});
+
     return NextResponse.json(data);
 }
 
