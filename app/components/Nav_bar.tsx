@@ -8,7 +8,7 @@ export default function NavBar() {
     <nav className=' p-4 sticky ' style={{backgroundColor:"#27D69F1A"}}>
         <div className=' mx-auto text-xl flex md:justify-end justify-center text-white '>
             <Link href="/" className='no-underline ml-10'>Home</Link>
-            <Link href="/" className='no-underline ml-10 '>Create</Link>
+            <Link href="/create" className='no-underline ml-10 '>Create</Link>
             <Link href="/" className=' no-underline ml-10 '>About</Link>
             <div className='mx-10'></div>
         </div>
