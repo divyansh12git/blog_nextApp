@@ -10,7 +10,7 @@ const About=()=>{
       </h1>
         <p className="text-lg text-gray-300 leading-relaxed mb-4">Hello This is <span className="hover:text-purple-600 font-semibold">Divyansh Gupta</span> </p>
       <p className="text-lg text-gray-300 leading-relaxed mb-4">
-        I'm a Computer Science undergraduate at <span className="text-white font-semibold">NIT Patna</span>, passionate about building meaningful software products. With over 2 years of experience in <span className="text-white font-semibold">full-stack development</span>, I specialize in creating fast, responsive, and user-friendly web applications.
+        I am a Computer Science undergraduate at <span className="text-white font-semibold">NIT Patna</span>, passionate about building meaningful software products. With over 2 years of experience in <span className="text-white font-semibold">full-stack development</span>, I specialize in creating fast, responsive, and user-friendly web applications.
       </p>
 
       <p className="text-lg text-gray-300 leading-relaxed mb-4">
