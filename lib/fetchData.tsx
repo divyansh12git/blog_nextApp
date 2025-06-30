@@ -1,6 +1,9 @@
+// const baseUrl = process.env.NEXT_PUBLIC_API_URL!;
+
 export async function getData(){
     // console.log("hi")
-    const res=await fetch('http://localhost:3000/api/project',{next:{revalidate:10}});
+    if(process.env.NEXT_PUBLIC_BASE_URL==undefined) return [];
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/project`);
     // console.log(res);
     let data=await res.json();
     console.log("yup");
