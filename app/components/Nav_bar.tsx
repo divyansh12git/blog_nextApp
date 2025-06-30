@@ -5,13 +5,12 @@ import Link from 'next/link';
 
 export default function NavBar() {
   return (
-    <nav className=' p-4 sticky ' style={{backgroundColor:"#27D69F1A"}}>
-        <div className=' mx-auto text-xl flex md:justify-end justify-center text-white '>
-            <Link href="/" className='no-underline ml-10'>Home</Link>
-            <Link href="/create" className='no-underline ml-10 '>Create</Link>
-            <Link href="/" className=' no-underline ml-10 '>About</Link>
-            <div className='mx-10'></div>
-        </div>
+    <nav className="sticky top-0 z-50 w-full  ">
+      <div className="max-w-screen-xl mx-auto px-6 py-4 flex justify-center md:justify-end text-white text-lg font-medium tracking-wide">
+        <Link href="/" className="ml-10 hover:text-purple-700 transition">Home</Link>
+        <Link href="/create" className="ml-10 hover:text-purple-700 transition">Create</Link>
+        <Link href="/about" className="ml-10 hover:text-purple-700 transition">About</Link>
+      </div>
     </nav>
-  )
+  );
 }

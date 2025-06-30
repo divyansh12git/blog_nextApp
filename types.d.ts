@@ -1,6 +1,7 @@
 type BlogPost={
-    User:String,
-   Blog:String,
+    author:String,
+    content:String,
     date:String,
-    title:String
+    title:String,
+    
 }

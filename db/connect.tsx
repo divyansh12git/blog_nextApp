@@ -1,10 +1,10 @@
 import mongoose from "mongoose";
 
-const MONGODB_URI='mongodb://127.0.0.1:27017/BlogApp';
+let connectionURI:string=process.env.MONGODB_URI || "";
 
 const connectDB=async ()=>{
     try{
-        await mongoose.connect(MONGODB_URI);
+        await mongoose.connect(connectionURI);
         console.log('Connected to MongoDb');
     }
     catch(err){

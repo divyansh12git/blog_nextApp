@@ -1,26 +1,54 @@
-import React from "react";
+'use client'
+import React,{ChangeEvent, useState} from "react";
 import style from "@/app/components/card.module.css";
 import { getData } from "@/lib/fetchData";
+import Search  from "./search_bar";
 
 
-export default async function Display(){
-    let data= await getData();
+export default function Display(){
+    const [blogs,setBlogs]=useState([]);
+    let data=  getData() ;
+    console.log(data);
+    let revData=[];
+    // if(data){
+    //   data.reverse();
+    // }
+
+
+    const [searchParam,setSearchParams]=useState('');
+    const handleChange=(e)=>{
+      setSearchParams(e.target.value);
+
+  }
+ 
+  const filterData=(item)=>{
+    const query = searchParam;
+        if(query===""){
+            return item;
+        }
+        else if(item.title.toLowerCase().includes(searchParam.toLowerCase())){
+            return item;
+        }
+  }
+  let finalData=revData
+  const handleClick=(check)=>{
+    if(check){
+       finalData=revData.filter(filterData);
+    }
+  }
     
-   
-   
- 
- 
     return(
   <div>    
+   <Search handleChange={handleChange} />
    
-    {data.map((c)=>{
+    {finalData.map((c)=>{
       return (
         <Card
         author={c.author}
         content={c.content}
         date={c.date}
         title={c.title}
-        key={c._id}
+        Key={c._id}
          />
       )
    })}

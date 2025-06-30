@@ -14,36 +14,28 @@ let currentDate=():String=>{
 }
 
 
-export  async function POST(req:Request){
-    let dataToUpload=await req.json();
-    // console.log(req.body)
-    if(req.method=='POST'){
-        
+const Blog= mongoose.models['blogs'] || mongoose.model('blogs',userSchema); // use model name matching your schema
+
+export async function POST(req: Request) {
+  try {
+    const dataToUpload = await req.json();
+
     await connectDB();
-    const blog= mongoose.models['Users'] || mongoose.model('Users',userSchema);
-        const data=new blog({
-            title:dataToUpload.title,
-            author:dataToUpload.name,
-            date:currentDate(),
-            content:dataToUpload.content
-        })
-        console.log(data)
-        // await data.save();
-      await data.save().then(()=>{
-        console.log('Successfully uploaded to mongodb');
-        mongoose.connection.close();
-            return NextResponse.json({
-            sucess:true,
-        })
-       }).catch((err:String)=>{console.log("problem in uploading \n " +err)})
-       
 
+    const newPost = new Blog({
+      title: dataToUpload.title,
+      author: dataToUpload.name,
+      date: currentDate(),
+      content: dataToUpload.content,
+    });
 
+    await newPost.save();
 
+    console.log("Successfully uploaded to MongoDB");
 
-    
-    }
-    return NextResponse.json({
-        sucess:false,
-    })
+    return NextResponse.json({ success: true });
+  } catch (err) {
+    console.error("Error uploading:", err);
+    return NextResponse.json({ success: false, error: err });
+  }
 }
